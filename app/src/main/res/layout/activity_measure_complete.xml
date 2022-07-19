@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#7ED2C3">
+
+    <ImageView
+        android:id="@+id/measure_complete_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="240dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_ellipse"/>
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="@+id/measure_complete_iv"
+        app:layout_constraintStart_toStartOf="@+id/measure_complete_iv"
+        app:layout_constraintEnd_toEndOf="@id/measure_complete_iv"
+        app:layout_constraintBottom_toTopOf="@+id/measure_complete_tv"
+        android:layout_marginTop="55dp"
+        android:id="@+id/measure_check_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/check"/>
+
+    <TextView
+        android:id="@+id/measure_complete_tv"
+        app:layout_constraintTop_toTopOf="@+id/measure_complete_iv"
+        app:layout_constraintStart_toStartOf="@+id/measure_complete_iv"
+        app:layout_constraintEnd_toEndOf="@id/measure_complete_iv"
+        app:layout_constraintBottom_toBottomOf="@id/measure_complete_iv"
+        android:layout_marginTop="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:text="측정완료"/>
+
+    <ImageView
+        android:id="@+id/measure_flow_iv"
+        android:layout_width="412dp"
+        android:layout_height="243dp"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/ic_measure_flow2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/measure_complete_iv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
