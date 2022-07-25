@@ -5,15 +5,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
-        android:id="@+id/status_gohome_btn"
+        android:id="@+id/notice_next_btn3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="다시 시작"
+        android:text="음주측정하기"
         android:textSize="20dp"
         android:textStyle="bold"
         android:backgroundTint="#7ED2C3"/>
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
