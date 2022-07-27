@@ -12,11 +12,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
+import org.w3c.dom.Text;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
@@ -44,7 +47,7 @@ public class StartMeasureActivity extends AppCompatActivity {
         bt.setOnDataReceivedListener(new BluetoothSPP.OnDataReceivedListener() { //데이터 수신
             public void onDataReceived(byte[] data, String message) {
 //                Toast.makeText(StartMeasureActivity.this, message, Toast.LENGTH_SHORT).show();
-                Log.i("DataRecieve", message);
+                Log.i("BTData", message);
             }
         });
 
@@ -118,11 +121,12 @@ public class StartMeasureActivity extends AppCompatActivity {
         startBtn = (ImageView)findViewById(R.id.measure_start_iv); //데이터 전송
         startBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                bt.send("Text", true);
+                bt.send("1", true);
             }
         });
     }
 
+    // 새로운 액티비티에 반환
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == BluetoothState.REQUEST_CONNECT_DEVICE) {
@@ -133,13 +137,21 @@ public class StartMeasureActivity extends AppCompatActivity {
                 bt.setupService();
                 bt.startService(BluetoothState.DEVICE_OTHER);
                 setup();
-
             } else {
-                Toast.makeText(getApplicationContext()
-                        , "Bluetooth was not enabled."
-                        , Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext()
+//                        , "Bluetooth was not enabled."
+//                        , Toast.LENGTH_SHORT).show();
+                Log.i("BT", "Bluetooth was not enabled.");
                 finish();
             }
         }
     }
+
+    // 음주측정 중일때
+    public void changeTv() {
+        TextView startTv = (TextView) findViewById(R.id.measure_start_tv);
+        startTv.setText("측정 중...");
+    }
+
+
 }
