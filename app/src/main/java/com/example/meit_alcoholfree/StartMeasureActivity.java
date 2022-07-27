@@ -72,8 +72,8 @@ public class StartMeasureActivity extends AppCompatActivity {
             }
         });
 
-        Button nextBtn = findViewById(R.id.next_btn); //연결시도 *이 부분을 음주측정하기 눌렀을때로 변경
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        Button homeBtn = findViewById(R.id.status_gohome_btn); //연결시도 *이 부분을 음주측정하기 눌렀을때로 변경
+        homeBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (bt.getServiceState() == BluetoothState.STATE_CONNECTED) {
                     bt.disconnect();
