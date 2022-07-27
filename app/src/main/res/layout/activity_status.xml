@@ -11,7 +11,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="홈으로"
+        android:text="다시 시작"
         android:textSize="20dp"
         android:textStyle="bold"
         android:backgroundTint="#7ED2C3"/>
