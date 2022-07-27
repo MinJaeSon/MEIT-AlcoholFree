@@ -27,7 +27,6 @@ import app.akexorcist.bluetotohspp.library.DeviceList;
 
 public class StartMeasureActivity extends AppCompatActivity {
     ImageView startBtn;
-    ImageView progBtn;
     private BluetoothSPP bt;
 
     @Override
@@ -35,6 +34,7 @@ public class StartMeasureActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.activity_measure_start);
         bt = new BluetoothSPP(this);
+        startBtn = (ImageView)findViewById(R.id.measure_start_iv);
 
         if (!bt.isBluetoothAvailable()) { //블루투스 사용 불가
 //            Toast.makeText(getApplicationContext()
@@ -72,8 +72,7 @@ public class StartMeasureActivity extends AppCompatActivity {
             }
         });
 
-        Button homeBtn = findViewById(R.id.status_gohome_btn); //연결시도 *이 부분을 음주측정하기 눌렀을때로 변경
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        startBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (bt.getServiceState() == BluetoothState.STATE_CONNECTED) {
                     bt.disconnect();
@@ -118,12 +117,18 @@ public class StartMeasureActivity extends AppCompatActivity {
 
     // 블루투스 사용 - 데이터 전송
     public void setup() {
-        startBtn = (ImageView)findViewById(R.id.measure_start_iv); //데이터 전송
         startBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 bt.send("1", true);
+                changeTv();
             }
         });
+    }
+
+    // 음주측정 시작 후 진행중 표시
+    private void changeTv() {
+        TextView startTv = (TextView) findViewById(R.id.measure_start_tv);
+        startTv.setText("측정 중...");
     }
 
     // 새로운 액티비티에 반환
@@ -146,12 +151,5 @@ public class StartMeasureActivity extends AppCompatActivity {
             }
         }
     }
-
-    // 음주측정 중일때
-    public void changeTv() {
-        TextView startTv = (TextView) findViewById(R.id.measure_start_tv);
-        startTv.setText("측정 중...");
-    }
-
 
 }
