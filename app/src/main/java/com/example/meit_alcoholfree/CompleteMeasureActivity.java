@@ -11,5 +11,7 @@ public class CompleteMeasureActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_measure_complete);
+
+        
     }
 }
